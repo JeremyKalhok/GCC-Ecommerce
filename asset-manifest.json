@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/gcc-ecommerce/static/css/main.bffdcdbe.css",
+    "main.js": "/gcc-ecommerce/static/js/main.d4ded461.js",
+    "static/js/453.f7be5b23.chunk.js": "/gcc-ecommerce/static/js/453.f7be5b23.chunk.js",
+    "static/media/phob_v2.0.5.png": "/gcc-ecommerce/static/media/phob_v2.0.5.852fbbb433571bf2edab.png",
+    "static/media/gcc.png": "/gcc-ecommerce/static/media/gcc.f76bcc0c3aaf3e2f2c85.png",
+    "static/media/buttons_blue_floral.webp": "/gcc-ecommerce/static/media/buttons_blue_floral.e9edc729444fc85e81de.webp",
+    "static/media/logo.png": "/gcc-ecommerce/static/media/logo.ed1b565d9fe725cbcb60.png",
+    "static/media/buttons_red+orange.webp": "/gcc-ecommerce/static/media/buttons_red+orange.9db55d46969bf309c24c.webp",
+    "static/media/buttons_blue+green.webp": "/gcc-ecommerce/static/media/buttons_blue+green.53e3564962ab0dcc3910.webp",
+    "static/media/buttons_turquoise.webp": "/gcc-ecommerce/static/media/buttons_turquoise.b4797e0694693fab4666.webp",
+    "static/media/tactile_z.png": "/gcc-ecommerce/static/media/tactile_z.a615e8623f54e54ec4ab.png",
+    "static/media/trigger_plugs_short.png": "/gcc-ecommerce/static/media/trigger_plugs_short.a5693b1455dc2bd2d6d0.png",
+    "static/media/gcc_indigo.png": "/gcc-ecommerce/static/media/gcc_indigo.888c13c7d49a3cf85a7a.png",
+    "static/media/gcc_platinum.png": "/gcc-ecommerce/static/media/gcc_platinum.f010d26b02711fcd6ca9.png",
+    "static/media/gcc_black.png": "/gcc-ecommerce/static/media/gcc_black.35b49b6722c1d3677d68.png",
+    "index.html": "/gcc-ecommerce/index.html",
+    "main.bffdcdbe.css.map": "/gcc-ecommerce/static/css/main.bffdcdbe.css.map",
+    "main.d4ded461.js.map": "/gcc-ecommerce/static/js/main.d4ded461.js.map",
+    "453.f7be5b23.chunk.js.map": "/gcc-ecommerce/static/js/453.f7be5b23.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bffdcdbe.css",
+    "static/js/main.d4ded461.js"
+  ]
+}
