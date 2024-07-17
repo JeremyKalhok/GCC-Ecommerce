@@ -4,7 +4,6 @@ import { Home_Shells } from '../Components/Home_Shells/Home_Shells'
 import { Home_Buttons } from '../Components/Home_Buttons/Home_Buttons'
 import { Home_Internals } from '../Components/Home_Internals/Home_Internals'
 import { Newsletter } from '../Components/Newsletter/Newsletter'
-import { Footer } from '../Components/Footer/Footer'
 import './Home.css'
 
 export const Home = () => {     // home page
