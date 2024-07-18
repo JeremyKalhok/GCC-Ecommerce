@@ -1,0 +1,74 @@
+.login-signup{
+    width: 100%;
+    height: 100%; /* all info goes to the bottom of the pink area */
+    background: #fce3fe;
+    padding: 100px 0px;
+    display: flex;
+    margin-bottom: 5%; /* ensures the footer doesn't run into the login block */
+}
+.login-signup-container{
+    width: 580px;
+    height: 590px;
+    background: white;
+    margin: auto;
+    padding: 40px 60px;
+}
+.login-signup-container h1{
+    margin: 20px 0px;
+}
+.login-signup-fields{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 29px;
+    margin-top: 30px;
+}
+.login-signup-fields input{
+    height: 60px;
+    width: 100%;
+    padding-left: 20px;
+    border: 1px solid #c9c9c9;
+    outline: none;
+    color: #5c5c5c;
+    font-size: 17px;
+    font-family: Poppins;
+}
+.login-signup-fields button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 60%;
+    height: 72px;
+    border-radius: 75px;
+    background: #ff4141;
+    color: white;
+    border: none;
+    font-size: large;
+}
+.login-signup-fields button:hover{
+    background: #cf1a1a;
+    cursor: pointer;
+}
+.login-signup-login{
+    color: #5c5c5c;
+    font-size: 18px;
+    font-weight: 500;
+}
+.login-signup span{
+    color: #ff4141;
+    font-weight: 600;
+}
+.login-signup-login span:hover{ /* adds an underline and changes cursor */
+    cursor: pointer;             /* when you hover over "Login Here" */
+    text-decoration: underline;
+}
+.login-signup-agree{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    gap: 20px;
+    color: #5c5c5c;
+    font-size: 18px;
+    font-weight: 500;
+}

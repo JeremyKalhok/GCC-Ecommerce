@@ -19,8 +19,7 @@
     border: 1px solid #888;
 }
 .shop-category-sort select:focus{  /* keeps border the same, and removes outline when selecting a dropdown */
-    border: 1px solid #888;      /* so styling remains consistent */
-    outline: none;
+    outline: none;                 /* so styling remains consistent */
 }
 .shop-category-products{
     margin: 20px;
