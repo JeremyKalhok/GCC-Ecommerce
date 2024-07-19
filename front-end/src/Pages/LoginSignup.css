@@ -4,7 +4,6 @@
     background: #fce3fe;
     padding: 100px 0px;
     display: flex;
-    margin-bottom: 5%; /* ensures the footer doesn't run into the login block */
 }
 .login-signup-container{
     width: 580px;

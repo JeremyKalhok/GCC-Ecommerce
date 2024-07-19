@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { ShopContext } from '../Context/ShopContext';
 import { useParams } from 'react-router-dom';
 import { Breadcrumb } from '../Components/Breadcrumb/Breadcrumb';
+import { ProductDisplay } from '../Components/ProductDisplay/ProductDisplay';
 
 export const Product = () => {
 
@@ -11,7 +12,8 @@ export const Product = () => {
 
   return (
     <div>
-      <Breadcrumb product={product}/>
+      <Breadcrumb product={product}/> {/* display the breadcrumb at the top of the page */}
+      <ProductDisplay product={product}/> {/* above the product display */}
     </div>
   )
 }
