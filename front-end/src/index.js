@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ShopContextProvider> {/* allows every file in App.js to import the context declared in ShopContext */}
-      <App />
+      <App />             {/* by passing the App component as a prop to the ShopContextProvider component */}
     </ShopContextProvider>
   </React.StrictMode>
 );
