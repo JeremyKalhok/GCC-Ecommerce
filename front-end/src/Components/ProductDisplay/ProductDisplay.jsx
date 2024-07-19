@@ -7,11 +7,13 @@ import { useParams, Link } from 'react-router-dom'
 
 export const ProductDisplay = (props) => {
 
-    const [size, setSize] = useState('short'); /* state used to tell if the short or tall size is selected */
+    const [size, setSize] = useState('short'); // state used to tell if the short or tall size is selected 
     const {product} = props;
-    let {productID} = useParams(); /* retrieves product id from path name */
+    let {productID} = useParams(); // retrieves product id from path name 
     let rangeMin = product.category==="shells" ? 1 : product.category==="buttons" ? 11 : product.category==="internals" ? 21 : null;
     let rangeMax = product.category==="shells" ? 10 : product.category==="buttons" ? 20 : product.category==="internals" ? 24: null;
+    /* rangeMin and rangeMax are used to set the range of products that can be viewed using the arrow buttons
+    based on the product category e.g. can only cycle between products 1-10 if the category is shells */
 
   return (
     <div className="product-display">

@@ -8,3 +8,9 @@
     margin: 30px 100px 60px;
     text-transform: capitalize; /* each word in the breadcrumb will start with a capital letter */
 }
+.breadcrumb a{
+    color: #5e5e5e;
+}
+.breadcrumb a:hover{
+    text-decoration: underline;
+}
