@@ -1,7 +1,8 @@
 .product-display{
+    width: 90vw;
     display: flex;
-    justify-content: center;
-    margin: 0px 170px;
+    justify-content: space-around;
+    margin: 0px auto;
     gap: 200px;
 }
 .arrow{
