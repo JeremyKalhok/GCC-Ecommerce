@@ -1,14 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import './ProductDisplay.css'
 import star_icon from "../Assets/star_icon.png"
 import star_dull_icon from "../Assets/star_dull_icon.png"
-import trigger_plugs_tall from "../Assets/trigger_plugs_tall.png"
 import { useParams, Link, useLocation } from 'react-router-dom'
 import { ShopContext } from '../../Context/ShopContext'
 
 export const ProductDisplay = (props) => {
 
-    const [size, setSize] = useState('short'); // state used to tell if the short or tall size is selected 
     const {product} = props;
     const {addToCart} = useContext(ShopContext);
     let {productID} = useParams(); // retrieves product id from path name 
@@ -18,17 +16,13 @@ export const ProductDisplay = (props) => {
     /* rangeMin and rangeMax are used to set the range of products that can be viewed using the arrow buttons
     based on the product category e.g. can only cycle between products 1-10 if the category is shells */
 
-    useEffect(() => {
-        setSize('short');
-    }, [location.pathname]);
-
   return (
     <div className="product-display">
         <Link to={`/product/${productID > rangeMin ? productID - 1 : rangeMin}`}><div className="arrow"> {/* will allow you to view the product to the left within the given range */}
             <p>&lt;</p>
         </div></Link>
-        <div className="product-display-left"> {/* displays the short or tall image depending on the "size" state value */}
-            {product.id === 22 ? (size === 'tall' ? <img src={trigger_plugs_tall} alt="" /> : <img src={product.image} alt="" />) : <img src={product.image} alt="" />} {/* but only displays tall image if still on the trigger plugs page */}
+        <div className="product-display-left">
+            <img src={product.image} alt="" />
         </div>
         <div className="product-display-right">
             <h1>{product.name}</h1>
@@ -45,15 +39,6 @@ export const ProductDisplay = (props) => {
             </div>
             <div className="product-display-right-description">
                 {product.description}
-            </div>
-            <div className="product-display-right-size" style={{display: Number(productID) === 22 ? 'block' : 'none'}}> {/* THIS SHOULD ONLY DISPLAY FOR TRIGGER PLUGS */}
-                <h1>Select Size</h1> {/* if the product ID is 22 (trigger plugs), display the size selector, otherwise keep it hidden */}
-                <div className="product-display-right-sizes" style={{display: Number(productID) === 22 ? 'flex' : 'none'}}>
-                    <select value={size} onChange={e => setSize(e.target.value)}>
-                        <option value="short">Short</option>
-                        <option value="tall">Tall</option>
-                    </select>
-                </div>
             </div>
             <div className="add-to-cart-btn">
                 <button onClick={() => {addToCart(product.id)}}>ADD TO CART</button>

@@ -20,12 +20,12 @@ export const ShopCategory = (props) => {     // will render Shells, Buttons, or 
   
   let all_product_sorted = [];                  // stores the sorted list of all_products
   
-  {if (sort === "name"){
+  if (sort === "name"){
     all_product_sorted = all_product.sort((p1, p2) => p1.name.localeCompare(p2.name));  // if the "Alphabetical" dropdown option is selected, sort items by name property
   }
   else{
     all_product_sorted = all_product.sort((p1, p2) => p1.id - p2.id);                   // otherwise sort them by id property
-  }}
+  }
 
   return (
     <div className="shop-category">

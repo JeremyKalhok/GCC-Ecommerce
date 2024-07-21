@@ -20,8 +20,9 @@ import p19_img from "./buttons_brown.webp";
 import p20_img from "./buttons_iridescent.webp";
 import p21_img from "./phob_v2.0.5.png";
 import p22_img from "./trigger_plugs_short.png";
-import p23_img from "./tri_wing_screwdriver.png";
-import p24_img from "./tactile_z.png";
+import p23_img from "./trigger_plugs_tall.png"
+import p24_img from "./tri_wing_screwdriver.png";
+import p25_img from "./tactile_z.png";
 
 let all_product = [
   {
@@ -194,7 +195,7 @@ let all_product = [
   },
   {
     id: 22,
-    name: "Trigger Plugs",
+    name: "Trigger Plugs (Short)",
     category: "internals",
     image: p22_img,
     price: 6.99,
@@ -202,17 +203,25 @@ let all_product = [
   },
   {
     id: 23,
-    name: "Tri Wing Screwdriver",
+    name: "Trigger Plugs (Tall)",
     category: "internals",
     image: p23_img,
+    price: 6.99,
+    description: "Trigger Plugs to Reduce Travel Distance (even shorter travel than short plugs)",
+  },
+  {
+    id: 24,
+    name: "Tri Wing Screwdriver",
+    category: "internals",
+    image: p24_img,
     price: 12.99,
     description: "Tri Wing Screwdriver to Disassemble Controller",
   },
   {
-    id: 24,
+    id: 25,
     name: "Tactile Z Button Switch",
     category: "internals",
-    image: p24_img,
+    image: p25_img,
     price: 5.99,
     description: "Solder onto Phob Motherboard to Provide Tactile Feeling on Z Button",
   },
