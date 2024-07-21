@@ -69,16 +69,20 @@
     margin-top: 30px;
     gap: 20px;
 }
-.product-display-right-sizes button{ /* styles the short and tall text individually */
-    padding: 18px 24px;           /* if the container above was used, they would be styled together in a group */
-    background: #fbfbfb;
-    border: 1px solid #ebebeb;
-    border-radius: 3px;
+.product-display-right-sizes select{ /* styles the short and tall text individually */
+    padding: 18px;           /* if the container above was used, they would be styled together in a group */
+    text-align-last: center;
+    border: 1px solid #888;
+    border-radius: 20px;
     cursor: pointer;
+    font-family: Poppins;
+    font-size: 15px;
 }
-.product-display-right-sizes button:focus{
-    outline: blue;
-    outline-style: inset;
+.product-display-right-sizes select:focus{
+    outline: none;
+}
+.product-display-right-sizes option{
+    font-size: 15px;
 }
 .add-to-cart-btn button{ /* styles add to cart button */
     padding: 20px 40px;

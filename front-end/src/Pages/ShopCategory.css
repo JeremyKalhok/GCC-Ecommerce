@@ -17,9 +17,14 @@
     font-family: Poppins;
     border-radius: 20px;
     border: 1px solid #888;
+    cursor: pointer;
+    font-size: 15px;
 }
 .shop-category-sort select:focus{  /* keeps border the same, and removes outline when selecting a dropdown */
     outline: none;                 /* so styling remains consistent */
+}
+.shop-category-sort option{
+    font-size: 15px;
 }
 .shop-category-products{
     margin: 20px;
