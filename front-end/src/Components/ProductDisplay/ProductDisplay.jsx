@@ -1,20 +1,23 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import './ProductDisplay.css'
 import star_icon from "../Assets/star_icon.png"
 import star_dull_icon from "../Assets/star_dull_icon.png"
-import { useParams, Link, useLocation } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { ShopContext } from '../../Context/ShopContext'
 
 export const ProductDisplay = (props) => {
 
     const {product} = props;
     const {addToCart} = useContext(ShopContext);
-    let {productID} = useParams(); // retrieves product id from path name 
-    let location = useLocation();
+    let {productID} = useParams(); // retrieves product id from path name
     let rangeMin = product.category==="shells" ? 1 : product.category==="buttons" ? 11 : product.category==="internals" ? 21 : null;
     let rangeMax = product.category==="shells" ? 10 : product.category==="buttons" ? 20 : product.category==="internals" ? 24: null;
     /* rangeMin and rangeMax are used to set the range of products that can be viewed using the arrow buttons
     based on the product category e.g. can only cycle between products 1-10 if the category is shells */
+
+    useEffect(() => {
+        window.scroll(0, 0);
+    }, []);
 
   return (
     <div className="product-display">

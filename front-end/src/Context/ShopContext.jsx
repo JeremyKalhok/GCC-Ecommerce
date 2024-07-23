@@ -20,11 +20,34 @@ const ShopContextProvider = (props) => {    // creates the ShopContextProvider c
         setCartItems((prev) => ({...prev,[itemID]:prev[itemID]+1}));
     }
 
-    const removeFromCart = (itemID) => { // given an itemID (product.id) antd the cart list (prev), decrement the index in prev using the spread operator
+    const removeFromCart = (itemID) => { // given an itemID (product.id) and the cart list (prev), decrement the index in prev using the spread operator
         setCartItems((prev) => ({...prev,[itemID]:prev[itemID]-1}));
     }
 
-    const contextValue = {all_product, cartItems, addToCart, removeFromCart};  // allows all children components to access this data without needing to use props
+    const cancelFromCart = (itemID) => { // given an itemID (product.id) and the cart list (prev), reset the index in prev to 0 using the spread operator
+        setCartItems((prev) => ({...prev,[itemID]:0}));
+    }
+
+    const getTotalCartAmount = () => {
+        let totalAmount = 0;
+        for(const item in cartItems){ // for each item 
+            if(cartItems[item] > 0){ // if an item is in the cart
+                let itemInfo = all_product.find((product) => product.id === Number(item)); // assign itemInfo equal to that object from all_product
+                totalAmount += itemInfo.price * cartItems[item]; // multiply the price of that product by its quantity and add it to the total amount
+            }
+        }
+        return totalAmount;
+    }
+
+    const getTotalProducts = () => {  // returns the total number of products in the cart
+        let totalProducts = 0;
+        for (let index = 1; index <= all_product.length; index++) {
+            totalProducts += cartItems[index];
+        }
+        return totalProducts;
+    }
+
+    const contextValue = {all_product, cartItems, addToCart, removeFromCart, cancelFromCart, getTotalCartAmount, getTotalProducts};  // allows all children components to access this data without needing to use props
 
     return (
         <ShopContext.Provider value={contextValue}> {/* everything between the ShopContext.Provider tags will be able */}

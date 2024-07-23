@@ -11,6 +11,10 @@ body {
   font-family: 'poppins';   /* set font family for all body text on page to poppins */
 }
 
+a{
+  text-decoration: none;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

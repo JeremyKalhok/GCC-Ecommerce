@@ -74,6 +74,6 @@
     background: red;
     color: white;
 }
-a{      /* a is used to style <Link> tags */
-    text-decoration: none;      /* removes the underline that text links have */
+.navbar a{      /* a is used to style <Link> tags */
+    color: #626262;      /* removes the underline that text links have */
 }

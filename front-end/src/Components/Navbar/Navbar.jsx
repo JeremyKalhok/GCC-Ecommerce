@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Navbar.css'
 import logo from '../Assets/logo.png'
 import cart_icon from '../Assets/cart_icon.png'
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
+import { ShopContext } from '../../Context/ShopContext'
 
 export const Navbar = () => {
 
     let location = useLocation();
+    const {getTotalProducts} = useContext(ShopContext);
 
   return (
     <div className='navbar'>
@@ -23,7 +25,7 @@ export const Navbar = () => {
         <div className="nav-login-cart">    {/* container for login button and cart */}
             <Link to='/login'><button>Login</button></Link>
             <Link to='/cart'><img src={cart_icon} alt="" /></Link>
-            <div className="nav-cart-count">0</div>     {/* circle counter for cart items */}
+            <div className="nav-cart-count">{getTotalProducts()}</div>     {/* circle counter for cart items */}
         </div>
     </div>
   )
