@@ -42,7 +42,7 @@ export const CartItems = () => {
       <div className="cart-items-bottom">
         <div className="cart-items-total">
           <p>Subtotal</p>
-          <p>${getTotalCartAmount()}</p>
+          <p>${(getTotalCartAmount()).toFixed(2)}</p>
         </div>
         <hr />
         <div className="cart-items-total">

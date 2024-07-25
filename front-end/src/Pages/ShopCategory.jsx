@@ -31,7 +31,7 @@ export const ShopCategory = (props) => {     // will render Shells, Buttons, or 
     <div className="shop-category">
       <div className="shop-category-indexSort">
         <p> {/* if on shells page, display 1-10, if on buttons page display 11-20, otherwis edisplay 21-25 */}
-          <span>Showing {props.category==="shells"?<>1-10</> : props.category==="buttons"?<>11-20</> : <>21-24</>}</span> out of 24 products
+          <span>Showing {props.category==="shells"?<>1-10</> : props.category==="buttons"?<>11-20</> : <>21-25</>}</span> out of 25 products
         </p>
         <div className="shop-category-sort">
           <label>Sort By: 
