@@ -13,7 +13,7 @@
 }
 .item p{
     margin: 6px 0px;
-    align-items: start;
+    text-align: center;
 }
 .item-price{
     display: flex;
@@ -65,6 +65,9 @@
     .item img{
         width: 70px;
         height: 72px;
+    }
+    .item p{
+        width: 70px;
     }
     .item-price{
         font-size: 13px;

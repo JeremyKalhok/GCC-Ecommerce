@@ -57,3 +57,14 @@
     height: 3px;
     background: #c7c7c7;
 }
+@media(max-width:800px){
+    .footer-links{
+        font-size: 14px;
+    }
+}
+@media(max-width:580px){
+    .footer-links{
+        flex-direction: column;
+        gap: 20px;
+    }
+}

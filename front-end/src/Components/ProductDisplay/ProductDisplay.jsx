@@ -44,7 +44,7 @@ export const ProductDisplay = (props) => {
                 {product.description}
             </div>
             <div className="add-to-cart-btn">
-                <button onClick={() => {addToCart(product.id)}}>ADD TO CART</button>
+                <button onClick={() => {addToCart(product.id); alert(`"${product.name}" has been added to cart!`)}}>ADD TO CART</button>
             </div>
         </div>
         <Link to={`/product/${productID < rangeMax ? Number(productID) + 1 : rangeMax}`}><div className="arrow"> {/* will allow you to view the product to the right within the given range */}

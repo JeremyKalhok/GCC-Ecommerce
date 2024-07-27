@@ -1,11 +1,10 @@
 .home-internals{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-top: 5%;
-    margin-bottom: 10%;
+    margin: 5% 0px 10%;
 }
 .home-internals h1{
     color: #171717;
@@ -26,6 +25,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 15px;
 }
 .home-internals-btn{
     display: flex;
@@ -42,4 +42,93 @@
 .home-internals-btn:hover{
     cursor: pointer;
     background: #cf1a1a;
+}
+@media(max-width:1280px){
+    .home-internals{
+        margin: 5% 0 10%;
+    }
+    .home-internals h1{
+        font-size: 40px;
+    }
+    .home-internals hr{
+        width: 180px;
+        height: 4px;
+    }
+    .home-internals-left{
+        gap: 10px;
+    }
+    .home-internals-right{
+        gap: 15px;
+    }
+    .home-internals-btn{
+        gap: 10px;
+        width: 190px;
+        height: 45px;
+        margin-top: 15px;
+    }
+}
+@media(max-width:1024px){
+    .home-internals{
+        margin: 5% 0 10%;
+    }
+    .home-internals h1{
+        font-size: 30px;
+    }
+    .home-internals hr{
+        width: 135px;
+        height: 3px;
+    }
+    .home-internals-left{
+        gap: 10px;
+    }
+    .home-internals-right{
+        gap: 10px;
+    }
+    .home-internals-btn{
+        gap: 10px;
+        width: 160px;
+        height: 40px;
+        margin-top: 15px;
+    }
+    .home-internals-btn p{
+        font-size: 16px;
+    }
+}
+@media(max-width:800px){
+    .home-internals{
+        margin: 5% 0 10%;
+        gap: 0px;
+    }
+    .home-internals h1{
+        font-size: 20px;
+    }
+    .home-internals hr{
+        width: 95px;
+        height: 3px;
+    }
+    .home-internals-left{
+        gap: 0px;
+    }
+    .home-internals-right{
+        gap: 5px;
+    }
+    .home-internals-btn{
+        gap: 5px;
+        width: 110px;
+        height: 35px;
+        margin-top: 8px;
+    }
+    .home-internals-btn p{
+        font-size: 12px;
+    }
+}
+@media(max-width:500px){
+    .home-internals{
+        margin: 5% 0 25%;
+        flex-direction: column-reverse;
+        gap: 15px;
+    }
+    .home-internals-left{
+        flex-direction: column;
+    }
 }
