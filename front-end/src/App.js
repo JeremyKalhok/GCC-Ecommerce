@@ -11,7 +11,7 @@ import { Footer } from './Components/Footer/Footer';
 function App() {
   return (
     <div>
-      <BrowserRouter>   {/* all pages hosted on the NavBar are accessed through the router */}
+      <BrowserRouter basename="/GCC-Ecommerce">   {/* all pages hosted on the NavBar are accessed through the router */}
         <Navbar/>
         <Routes>
           <Route path='/' element={<Home/>}/>   {/* if accessing the path "/", render the Home component */}
