@@ -2,7 +2,7 @@
   "name": "front-end",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://JeremyKalhok.github.io/GCC-Ecommerce",
+  "homepage": "https://jeremykalhok.github.io/GCC-Ecommerce/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
