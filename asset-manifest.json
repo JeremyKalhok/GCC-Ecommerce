@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/GCC-Ecommerce/static/css/main.11e7b0ac.css",
-    "main.js": "/GCC-Ecommerce/static/js/main.c31c9ec2.js",
+    "main.js": "/GCC-Ecommerce/static/js/main.7c5281df.js",
     "static/js/453.f7be5b23.chunk.js": "/GCC-Ecommerce/static/js/453.f7be5b23.chunk.js",
     "static/media/gcc_mario.png": "/GCC-Ecommerce/static/media/gcc_mario.5206f949524e31b5792b.png",
     "static/media/gcc_luigi.png": "/GCC-Ecommerce/static/media/gcc_luigi.a7c1ff1263e8c808ac97.png",
@@ -32,11 +32,11 @@
     "static/media/buttons_iridescent.webp": "/GCC-Ecommerce/static/media/buttons_iridescent.42f5c00e5221c82b8fa0.webp",
     "index.html": "/GCC-Ecommerce/index.html",
     "main.11e7b0ac.css.map": "/GCC-Ecommerce/static/css/main.11e7b0ac.css.map",
-    "main.c31c9ec2.js.map": "/GCC-Ecommerce/static/js/main.c31c9ec2.js.map",
+    "main.7c5281df.js.map": "/GCC-Ecommerce/static/js/main.7c5281df.js.map",
     "453.f7be5b23.chunk.js.map": "/GCC-Ecommerce/static/js/453.f7be5b23.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.11e7b0ac.css",
-    "static/js/main.c31c9ec2.js"
+    "static/js/main.7c5281df.js"
   ]
 }
