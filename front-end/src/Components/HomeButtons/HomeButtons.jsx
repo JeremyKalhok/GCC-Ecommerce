@@ -1,12 +1,12 @@
 import React from 'react'
-import './Home_Buttons.css'
+import './HomeButtons.css'
 import { Item } from '../Item/Item'
 import home_buttons from '../Assets/home_buttons'
 import home_buttons2 from '../Assets/home_buttons2'
 import arrow_icon from '../Assets/arrow.png'
 import { Link } from 'react-router-dom'
 
-export const Home_Buttons = () => {
+export const HomeButtons = () => {
   return (
     <div className="home-buttons">
         <div className="home-buttons-left">

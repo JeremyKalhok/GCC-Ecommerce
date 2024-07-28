@@ -2,7 +2,6 @@ import React from 'react'
 import './CartItems.css'
 import { useContext } from 'react';
 import { ShopContext } from '../../Context/ShopContext';
-import remove_icon from '../Assets/cart_cross_icon.png'
 import { Link } from 'react-router-dom';
 
 export const CartItems = () => {
@@ -24,7 +23,7 @@ export const CartItems = () => {
         </div>
         <hr />
         {all_product.map((e) => {
-          if(cartItems[e.id] > 0){ {/* only display a product if it's cart quantity is greater than 0 (if it has been added to the cart) */}
+          if(cartItems[e.id] > 0){ /* only display a product if it's cart quantity is greater than 0 (if it has been added to the cart) */
             return  <div className="cart-items-format"> {/* display product information underneath the headings listed in <p></p> tags above */}
                       <Link to={`/product/${e.id}`}><img src={e.image} alt="" className="product-icon" /></Link>  {/* let the image and title link */}
                       <Link to={`/product/${e.id}`} className="title"><p>{e.name}</p></Link>                      {/* to the product's specific page */}

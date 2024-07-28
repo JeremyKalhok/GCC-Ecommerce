@@ -34,12 +34,11 @@ export const ShopCategory = (props) => {     // will render Shells, Buttons, or 
           <span>Showing {props.category==="shells"?<>1-10</> : props.category==="buttons"?<>11-20</> : <>21-25</>}</span> out of 25 products
         </p>
         <div className="shop-category-sort">
-          <label>Sort By: 
+          <label>Sort By: </label>
             <select value={sort} onChange={e => setSort(e.target.value)}> {/* when the selected dropdown option changes, set the sort state equal to the value of the dropdown */}
               <option value="id">Product ID</option>
               <option value="name">Alphabetical</option>
             </select>
-          </label>
         </div> 
       </div>
       <div className="shop-category-products">

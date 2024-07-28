@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: center;
 }
-.shop-category-indexSort p{ /* styles thj "showing x out of x products" */
+.shop-category-indexSort p{ /* styles the "showing x out of x products" */
     font-weight: 600;
 }
 .shop-category-sort{    /* styles just the "Sort By" and dropdown */
@@ -33,4 +33,44 @@
     width: 90vw;
     grid-template-columns: 1fr 1fr 1fr 1fr; /* makes 4 columns with equal width using fractional units */
     row-gap: 80px;
+}
+@media(max-width:1280px){
+    .shop-category-indexSort{
+        width: 90%;
+        margin: auto;
+    }
+    .shop-category-indexSort p{
+        font-size: 13px;
+    }
+    .shop-category-sort{
+        padding: 5px 10px;
+        font-size: 13px;
+    }
+    .shop-category-sort select, .shop-category-sort option{
+        font-size: 13px;
+    }
+    .shop-category-products{
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 10px auto; /* sets margin for the whole container */
+    }
+    .shop-category-products .item{ /* centers the displayed items */
+        margin: auto;
+    }
+}
+@media(max-width:800px){
+    .shop-category-products{
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+}
+@media(max-width:500px){
+    .shop-category-indexSort p{
+        font-size: 12px;
+    }
+    .shop-category-sort, .shop-category-sort select, .shop-category-sort option{
+        font-size: 12px;
+    }
+    .shop-category-products .item{
+        width: 95%;
+    }
 }

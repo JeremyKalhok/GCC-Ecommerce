@@ -1,11 +1,11 @@
 import React from 'react'
-import './Home_Internals.css'
+import './HomeInternals.css'
 import { Item } from '../Item/Item'
 import home_internals from '../Assets/home_internals'
 import arrow_icon from '../Assets/arrow.png'
 import { Link } from 'react-router-dom'
 
-export const Home_Internals = () => {
+export const HomeInternals = () => {
   return (
     <div className="home-internals">
         <div className="home-internals-left">

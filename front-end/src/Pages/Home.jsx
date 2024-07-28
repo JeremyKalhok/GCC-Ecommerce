@@ -1,8 +1,8 @@
 import React from 'react'
 import { Welcome } from '../Components/Welcome/Welcome'
-import { Home_Shells } from '../Components/Home_Shells/Home_Shells'
-import { Home_Buttons } from '../Components/Home_Buttons/Home_Buttons'
-import { Home_Internals } from '../Components/Home_Internals/Home_Internals'
+import { HomeShells } from '../Components/HomeShells/HomeShells'
+import { HomeButtons } from '../Components/HomeButtons/HomeButtons'
+import { HomeInternals } from '../Components/HomeInternals/HomeInternals'
 import { Newsletter } from '../Components/Newsletter/Newsletter'
 import './Home.css'
 
@@ -10,11 +10,11 @@ export const Home = () => {     // home page
   return (
     <div>
       <Welcome />
-      <Home_Shells />
+      <HomeShells />
       <hr />
-      <Home_Buttons />
+      <HomeButtons />
       <hr />
-      <Home_Internals />
+      <HomeInternals />
       <Newsletter />
     </div>
   )
