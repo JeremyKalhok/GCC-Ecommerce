@@ -21,7 +21,7 @@ export const ProductDisplay = (props) => {
 
   return (
     <div className="product-display">
-        <div className="arrow"> {/* will allow you to view the product to the left within the given range */}
+        <div className="arrow left"> {/* will allow you to view the product to the left within the given range */}
             <Link to={`/product/${productID > rangeMin ? productID - 1 : rangeMin}`}><p>&lt;</p></Link>
         </div>
         <div className="product-display-left-right-container">
@@ -49,7 +49,7 @@ export const ProductDisplay = (props) => {
                 </div>
             </div>
         </div>
-        <div className="arrow"> {/* will allow you to view the product to the right within the given range */}
+        <div className="arrow right"> {/* will allow you to view the product to the right within the given range */}
             <Link to={`/product/${productID < rangeMax ? Number(productID) + 1 : rangeMax}`}><p>&gt;</p></Link>
         </div>
     </div>
