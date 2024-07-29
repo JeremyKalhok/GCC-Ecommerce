@@ -71,3 +71,49 @@
     font-size: 18px;
     font-weight: 500;
 }
+@media(max-width:1280px){
+    .login-signup{
+        padding-top: 50px;
+    }
+    .login-signup-container{
+        width: auto;
+        max-width: 500px;
+        max-height: 500px;
+    }
+    .login-signup-container h1{
+        margin: 10px 0px;
+    }
+    .login-signup-fields{
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .login-signup-fields input{
+        height: 65px;
+        width: 93%;
+    }
+    .login-signup-login{
+        font-size: 16px;
+    }
+    .login-signup-agree{
+        font-size: 14px;
+        gap: 10px;
+    }
+}
+@media(max-width:800px){
+    .login-signup
+    .login-signup-container{
+        max-height: 450px;
+        padding: 20px 30px;
+    }
+    .login-signup-container h1{
+        font-size: 24px;
+    }
+    .login-signup-fields input{
+        height: 50px;
+    }
+    .login-signup-fields button{
+        height: 55px;
+        width: 50%;
+        font-size: 16px;
+    }
+}
