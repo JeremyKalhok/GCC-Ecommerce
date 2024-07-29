@@ -21,35 +21,37 @@ export const ProductDisplay = (props) => {
 
   return (
     <div className="product-display">
-        <Link to={`/product/${productID > rangeMin ? productID - 1 : rangeMin}`}><div className="arrow"> {/* will allow you to view the product to the left within the given range */}
-            <p>&lt;</p>
-        </div></Link>
-        <div className="product-display-left">
-            <img src={product.image} alt="" />
+        <div className="arrow"> {/* will allow you to view the product to the left within the given range */}
+            <Link to={`/product/${productID > rangeMin ? productID - 1 : rangeMin}`}><p>&lt;</p></Link>
         </div>
-        <div className="product-display-right">
-            <h1>{product.name}</h1>
-            <div className="product-display-right-stars">
-                <img src={star_icon} alt="" />
-                <img src={star_icon} alt="" />
-                <img src={star_icon} alt="" />
-                <img src={star_icon} alt="" />
-                <img src={star_dull_icon} alt="" />
-                <p>(122)</p>
+        <div className="product-display-left-right-container">
+            <div className="product-display-left">
+                <img src={product.image} alt="" />
             </div>
-            <div className="product-display-right-prices">
-                ${product.price}
-            </div>
-            <div className="product-display-right-description">
-                {product.description}
-            </div>
-            <div className="add-to-cart-btn">
-                <button onClick={() => {addToCart(product.id); alert(`"${product.name}" has been added to cart!`)}}>ADD TO CART</button>
+            <div className="product-display-right">
+                <h1>{product.name}</h1>
+                <div className="product-display-right-stars">
+                    <img src={star_icon} alt="" />
+                    <img src={star_icon} alt="" />
+                    <img src={star_icon} alt="" />
+                    <img src={star_icon} alt="" />
+                    <img src={star_dull_icon} alt="" />
+                    <p>(122)</p>
+                </div>
+                <div className="product-display-right-price">
+                    ${product.price}
+                </div>
+                <div className="product-display-right-description">
+                    {product.description}
+                </div>
+                <div className="add-to-cart-btn">
+                    <button onClick={() => {addToCart(product.id); alert(`"${product.name}" has been added to cart!`)}}>ADD TO CART</button>
+                </div>
             </div>
         </div>
-        <Link to={`/product/${productID < rangeMax ? Number(productID) + 1 : rangeMax}`}><div className="arrow"> {/* will allow you to view the product to the right within the given range */}
-            <p>&gt;</p>
-        </div></Link>
+        <div className="arrow"> {/* will allow you to view the product to the right within the given range */}
+            <Link to={`/product/${productID < rangeMax ? Number(productID) + 1 : rangeMax}`}><p>&gt;</p></Link>
+        </div>
     </div>
   )
 }

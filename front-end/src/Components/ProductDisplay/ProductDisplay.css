@@ -1,11 +1,9 @@
 .product-display{
-    width: 90vw;
+    width: 90%;
     display: flex;
-    justify-content: space-around;
     margin: 0px auto;
-    gap: 200px;
 }
-.arrow{
+.arrow a{
     justify-content: center;
     align-items: center;
     background: #f3f3f3;
@@ -17,16 +15,20 @@
     border: 1px solid #ebebeb;
     border-radius: 70px;
 }
+.product-display-left-right-container{
+    display: flex;
+    justify-content: space-evenly;
+}
 .product-display-left{
     display: flex;
-    gap: 17px;
 }
 .product-display-left img{
     display: block; /* do not display image flex so it won't fill container size, but will keep aspect ratio */
-    width: 15vw;
+    width: 185px;
     height: auto;
     max-height: 375px;
     margin: auto auto;
+    padding: 0px 200px;
     border-radius: 20px;
 }
 .product-display-right{
@@ -34,6 +36,7 @@
     margin: auto;
     display: flex;
     flex-direction: column;
+    padding-right: 50px;
 }
 .product-display-right h1{ /* styles product name and "select size" heading */
     color: #3d3d3d;
@@ -48,41 +51,14 @@
     color: #1c1c1c;
     font-size: 16px;
 }
-.product-display-right-prices{
+.product-display-right-price{
     display: flex;
     margin: 40px 0px;
-    gap: 30px;
     font-size: 24px;
     font-weight: 700;
 }
 .product-display-right-description{
     width: 100%;
-}
-.product-display-right-size h1{ /* just styles "select size" heading */
-    margin-top: 55px;
-    color: #656565;
-    font-size: 20px;
-    font-weight: 600;
-}
-.product-display-right-sizes{ /* styles the short and tall text */
-    /* display: flex; is in the inline styling when deciding whether or not to display */
-    margin-top: 30px;
-    gap: 20px;
-}
-.product-display-right-sizes select{ /* styles the short and tall text individually */
-    padding: 18px;           /* if the container above was used, they would be styled together in a group */
-    text-align-last: center;
-    border: 1px solid #888;
-    border-radius: 20px;
-    cursor: pointer;
-    font-family: Poppins;
-    font-size: 15px;
-}
-.product-display-right-sizes select:focus{
-    outline: none;
-}
-.product-display-right-sizes option{
-    font-size: 15px;
 }
 .add-to-cart-btn button{ /* styles add to cart button */
     padding: 20px 40px;
@@ -99,4 +75,46 @@
 }
 .add-to-cart-btn button:hover{
     background: #cf1a1a;
+}
+@media(max-width:1280px){
+    .product-display-left img{
+        width: 150px;
+        padding: 0px 150px;
+    }
+}
+@media(max-width:1024px){
+    .arrow a{
+        width: 50px;
+        height: 50px;
+        font-size: 45px;
+    }
+    .product-display-left img{
+        width: 125px;
+        padding: 0px 125px;
+    }
+    .product-display-right h1{
+        font-size: 30px;
+    }
+    .product-display-right-price{
+        font-size: 20px;
+        margin: 30px 0;
+    }
+}
+@media(max-width:800px){
+    .product-display{
+        justify-content: space-evenly;
+    }
+    .product-display-left-right-container{
+        width: 50vw;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .product-display-left img{
+        padding: 0;
+    }
+    .product-display-right{
+        align-items: center;
+        text-align: center;
+        padding: 0;
+    }
 }
