@@ -117,6 +117,13 @@ app.post('/removeproduct', async (req, res) => { // call the mongo function that
     });
 });
 
+// Creating API for getting all products
+app.get('/allproducts', async (req, res) => {
+    let products = await Product.find({}); // retrieves all products in database and stores them in an array
+    console.log("All Products Fetched");
+    res.send(products);
+});
+
 app.listen(port, (error) => { // connect to, and listen for, visitors on port 4000
     if (!error) {    // if no error, print the port number to console
         console.log(`Server Running on port ${port}`);
