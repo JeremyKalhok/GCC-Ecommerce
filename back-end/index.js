@@ -118,7 +118,7 @@ app.post('/removeproduct', async (req, res) => { // call the mongo function that
 });
 
 // Creating API for getting all products
-app.get('/allproducts', async (req, res) => {
+app.get('/listproduct', async (req, res) => {
     let products = await Product.find({}); // retrieves all products in database and stores them in an array
     console.log("All Products Fetched");
     res.send(products);
