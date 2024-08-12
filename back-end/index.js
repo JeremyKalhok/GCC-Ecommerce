@@ -132,6 +132,78 @@ app.get('/listproduct', async (req, res) => {
     res.send(products);
 });
 
+// Schema for Creating Users
+const Users = mongoose.model('Users', {
+    name: {
+        type: String,
+    },
+    email: {
+        type: String,
+        unique: true, // only one User object can be created with each unique email
+    },
+    password: {
+        type: String,
+    },
+    cartData: {
+        type: Object,
+    },
+    date: {
+        type: Date,
+        default: Date.now,
+    },
+});
+
+// Creating Endpoint for Registering the User
+app.post('/signup', async (req, res) => {
+    let check = await Users.findOne({email: req.body.email});
+    if (check){ // if the email already exists in the database, generate the following response
+        return res.status(400).json({success: false, errors: "An account with this email address already exists."});
+    }
+    let cart = {}; 
+    for (let i = 0; i < 300; i++) {
+        cart[i] = 0; // creates an empty cart with 300 indexes all set to 0
+    }
+    const user = new Users({ // create a new User object using the fields from the request
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+        cartData: cart,
+    });
+
+    await user.save(); // saves the newly created user object to the database
+
+    const data = { // mongo autogenerates an id for each product which can be accessed by user.id
+        user: {
+            id: user.id,
+        },
+    };
+
+    const token = jwt.sign(data, 'secret_ecom'); // generate authentication token for the new user based on the id that mongo automatically generated
+    res.json({success: true, token}); // if successfully created, send the newly generated token back to the user as part of the response
+});
+
+// Creating Endpoint for User Login
+app.post('/login', async (req, res) => {
+    let user = await Users.findOne({email: req.body.email}); // retrieve the existing User object from the database that has a matching email to the request
+    if (user){
+        const passCompare = req.body.password === user.password // check if user-entered password is the same as the password linked to the account
+        if (passCompare) { // if the passwords match, generate a token based on the user's id
+            const data = {
+                user: {
+                    id: user.id
+                }
+            };
+            const token = jwt.sign(data, 'secret_ecom');
+            res.json({success: true, token});
+        }
+        else{ // else if password compare returns false
+            res.json({success: false, errors: "Incorrect Password"});
+        }
+    }else{ // else if no User object with a matching email address exists in the database
+        res.json({success: false, errors: "Incorrect Email Address"})
+    }
+})
+
 app.listen(port, (error) => { // connect to, and listen for, visitors on port 4000
     if (!error) {    // if no error, print the port number to console
         console.log(`Server Running on port ${port}`);
