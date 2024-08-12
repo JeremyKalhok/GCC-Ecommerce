@@ -11,7 +11,7 @@ export const ProductDisplay = (props) => {
     const {addToCart} = useContext(ShopContext);
     let {productID} = useParams(); // retrieves product id from path name
     let rangeMin = product.category==="shells" ? 1 : product.category==="buttons" ? 11 : product.category==="internals" ? 21 : null;
-    let rangeMax = product.category==="shells" ? 10 : product.category==="buttons" ? 20 : product.category==="internals" ? 24: null;
+    let rangeMax = product.category==="shells" ? 10 : product.category==="buttons" ? 20 : product.category==="internals" ? 25: null;
     /* rangeMin and rangeMax are used to set the range of products that can be viewed using the arrow buttons
     based on the product category e.g. can only cycle between products 1-10 if the category is shells */
 
