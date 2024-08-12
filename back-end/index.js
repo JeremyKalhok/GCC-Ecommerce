@@ -8,7 +8,9 @@ const jwt = require("jsonwebtoken"); // import and initialize the jsonwebtoken
 const multer = require("multer"); // ditto multer
 const path = require("path"); // stores backend directory's path for the express app to access
 const cors = require("cors"); // import and initialize the cors package
+const { fstat } = require("fs");
 const dotenv = require("dotenv").config({path : '../.env'}); // access .env file stored in parent directory
+const fs = require("fs"); // used to delete images from upload directory when a product is removed
 
 // Since no path is specified for app.use(), these functions will be executed for every request to the app
 app.use(express.json()); // the response retrieved from express will automatically be passed through json
@@ -110,6 +112,12 @@ app.post('/addproduct', async (req, res) => { // the request is an object with p
 // Creating API for Deleting Products
 app.post('/removeproduct', async (req, res) => { // call the mongo function that will delete the item 
     await Product.findOneAndDelete({id: req.body.id}); // with the corresponding id from the req parameter
+    fs.unlink(`./upload/images/${req.body.image}`, (error) => { // delete the image file stored in uploads/images/
+        if (error) console.log(error);                          // corresponding to the product that was just deleted
+        else {
+            console.log("Image Deleted");
+        }
+    });
     console.log("Removed");
     res.json({
         success: true,

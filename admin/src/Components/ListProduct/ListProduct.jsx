@@ -13,14 +13,14 @@ const ListProduct = () => {
     fetchInfo(); // fetches and displays the product list every time the ListProduct component is mounted
   }, []);
 
-  const Remove_Product = async (id) => { // provide an id as a parameter when calling the function
+  const Remove_Product = async (id, image_url) => { // provide product id and image filename as parameters when calling the function
     await fetch('http://localhost:4000/removeproduct', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({id: id}),
+      body: JSON.stringify({id: id, image: image_url}),
     })
     await fetchInfo(); // call fetchInfo to updated the displayed items after removing
   };
@@ -45,8 +45,8 @@ const ListProduct = () => {
                 <p>{product.category}</p>
                 <p>{product.price}</p>
                 <p>{product.description}</p>
-                <p onClick={() => {Remove_Product(product.id)}} className='list-product-remove-icon'>X</p>
-              </div>
+                <p onClick={() => {Remove_Product(product.id, product.image.split('/')[4])}} className='list-product-remove-icon'>X</p>
+              </div> {/* splits the image url by '/', and then retrieves the index that contains just the filename to pass to the removeproduct endpoint */}
               <hr />
               </> // since you can only return one component, and we are trying to return 2 (div and hr tags), we can surround them 
             })}   {/* within an empty tag that will not change how they are displayed, but allow them to be returned as 1 component */}
