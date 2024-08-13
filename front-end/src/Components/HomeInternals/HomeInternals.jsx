@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './HomeInternals.css'
 import { Item } from '../Item/Item'
-import home_internals from '../Assets/home_internals'
 import arrow_icon from '../Assets/arrow.png'
 import { Link } from 'react-router-dom'
 
 export const HomeInternals = () => {
+
+    const [home_internals, setHome_Internals] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:4000/homeinternals').then((response) => response.json())
+        .then((data) => setHome_Internals(data));
+    }, []);
+
   return (
     <div className="home-internals">
         <div className="home-internals-left">

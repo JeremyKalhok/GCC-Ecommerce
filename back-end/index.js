@@ -200,9 +200,36 @@ app.post('/login', async (req, res) => {
             res.json({success: false, errors: "Incorrect Password"});
         }
     }else{ // else if no User object with a matching email address exists in the database
-        res.json({success: false, errors: "Incorrect Email Address"})
+        res.json({success: false, errors: "Incorrect Email Address"});
     }
-})
+});
+
+// Creating Endpoint for HomeShells data
+app.get('/homeshells', async (req, res) => {
+    let products = await Product.find({}); // store all products in an array
+    let homeshells = products.slice(0, 3); // select only the first 3 products (black, indigo, platinum controller)
+    console.log("HomeShells Fetched");
+    res.send(homeshells);
+});
+
+// Creating Endpoint for HomeButtons data
+app.get('/homebuttons', async (req, res) => {
+    let products = await Product.find({});
+    let homebuttons = products.slice(10, 14);
+    console.log("HomeButtons Fetched");
+    res.send(homebuttons);
+});
+
+// Creating Endpoint for HomeInternals data
+app.get('/homeinternals', async (req, res) => {
+    let products = await Product.find({});
+    let homeinternals = [];
+    homeinternals.push(products[20]);
+    homeinternals.push(products[24]);
+    console.log("HomeInternals Fetched");
+    res.send(homeinternals);
+    
+});
 
 app.listen(port, (error) => { // connect to, and listen for, visitors on port 4000
     if (!error) {    // if no error, print the port number to console

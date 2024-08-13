@@ -11,13 +11,13 @@ export const LoginSignup = () => {
   });
   const [checked, setChecked] = useState(false);
 
-  const continueButton = () => {
-    if (state==="Sign Up" && !document.getElementById('checkbox').checked){
+  const continueButton = () => { // if you are on the Sign Up page and the checkbox is not checked
+    if (state==="Sign Up" && !document.getElementById('checkbox').checked){ // display the alert
       alert("Please agree to the terms of use and privacy policy");
     }
     else{
-      state==="Login"?login():signup();
-    }
+      state==="Login"?login():signup(); // if you are on the Login page, call the login function 
+    }                                   // if you are on the Sign Up page and the checkbox is checked, call the signup function
   };
 
   const changeHandler = (e) => {

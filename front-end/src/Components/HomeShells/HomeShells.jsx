@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './HomeShells.css'
 import { Item } from '../Item/Item'
-import home_shells from '../Assets/home_shells'
 import arrow_icon from '../Assets/arrow.png'
 import { Link } from 'react-router-dom'
 
 export const HomeShells = () => {
+
+  const [home_shells, setHome_Shells] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:4000/homeshells').then((response) => response.json())
+    .then((data) => setHome_Shells(data));
+  }, []);
+
   return (
     <div className="home-shells">
         <h1>SHELLS</h1>

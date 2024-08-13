@@ -1,20 +1,25 @@
-import React, { createContext, useState } from "react";
-import all_product from '../Components/Assets/all_product'
+import React, { createContext, useEffect, useState } from "react";
 
 export const ShopContext = createContext(null); // since Context has been declared in this separate file, it can be exported 
                                                 // and accessed in other files by importing it
 
 const getDefaultCart = () => {
     let cart = {}; // creates an empty cart that counts the number of products added to cart by incrementing the array index 
-    for (let index = 0; index < all_product.length + 1; index++) {  // corresponding to that product id (default of 0)
-        cart[index] = 0;
+    for (let index = 0; index < 300 + 1; index++) {  // corresponding to that product id (default of 0)
+        cart[index] = 0; // set max cart size to 300 since cart defined in back-end + database has size 300
     }
     return cart;
 }
 
 const ShopContextProvider = (props) => {    // creates the ShopContextProvider component
     
+    const [all_product, setAll_Product] = useState([]);
     const [cartItems, setCartItems] = useState(getDefaultCart()); // initializes the cartItems state to the empty cart list
+
+    useEffect(() => { // instead of using the all_product file, retrieve the products from the database
+        fetch('http://localhost:4000/listproduct').then((response) => response.json()) // and store them in 
+        .then((data) => setAll_Product(data));// the all_product state
+    }, []);
 
     const addToCart = (itemID) => { // given an itemID (product.id) and the cart list (prev), increment the number in prev using the spread operator
         setCartItems((prev) => ({...prev,[itemID]:prev[itemID]+1}));
