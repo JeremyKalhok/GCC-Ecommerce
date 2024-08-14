@@ -9,7 +9,7 @@ const getDefaultCart = () => {
         cart[index] = 0; // set max cart size to 300 since cart defined in back-end + database has size 300
     }
     return cart;
-}
+};
 
 const ShopContextProvider = (props) => {    // creates the ShopContextProvider component
     
@@ -19,19 +19,64 @@ const ShopContextProvider = (props) => {    // creates the ShopContextProvider c
     useEffect(() => { // instead of using the all_product file, retrieve the products from the database
         fetch('http://localhost:4000/listproduct').then((response) => response.json()) // and store them in 
         .then((data) => setAll_Product(data));// the all_product state
+
+        if(localStorage.getItem('auth-token')){
+            fetch('http://localhost:4000/getcart', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/form-data',
+                    'auth-token': `${localStorage.getItem('auth-token')}`,
+                    'Content-Type': 'application/json',
+                },
+                body: "", // no body required, since all we are sending is user information in the header
+            }).then((response) => response.json()).then((data) => setCartItems(data)); // if a user is logged in (auth-token can be retrieved)
+        }                                                                              // set cartItems equal to the cart stored in the database linked to that user
     }, []);
 
     const addToCart = (itemID) => { // given an itemID (product.id) and the cart list (prev), increment the number in prev using the spread operator
         setCartItems((prev) => ({...prev,[itemID]:prev[itemID]+1}));
-    }
+        if(localStorage.getItem('auth-token')){ // if a user is logged in
+            fetch('http://localhost:4000/addtocart', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/form-data',
+                    'auth-token': `${localStorage.getItem('auth-token')}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({"itemID": itemID}),
+            }).then((response) => response.json()).then((data) => console.log(data));
+        }
+    };
 
     const removeFromCart = (itemID) => { // given an itemID (product.id) and the cart list (prev), decrement the index in prev using the spread operator
         setCartItems((prev) => ({...prev,[itemID]:prev[itemID]-1}));
-    }
+        if(localStorage.getItem('auth-token')){
+            fetch('http://localhost:4000/removefromcart', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/form-data',
+                    'auth-token': `${localStorage.getItem('auth-token')}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({"itemID": itemID}),
+            }).then((response) => response.json()).then((data) => console.log(data));
+        }
+    };
 
     const cancelFromCart = (itemID) => { // given an itemID (product.id) and the cart list (prev), reset the index in prev to 0 using the spread operator
         setCartItems((prev) => ({...prev,[itemID]:0}));
-    }
+        if(localStorage.getItem('auth-token')){
+            fetch('http://localhost:4000/cancelfromcart', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/form-data',
+                    'auth-token': `${localStorage.getItem('auth-token')}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({"itemID": itemID}),
+            }).then((response) => response.json()).then((data) => console.log(data));
+        }
+    };
 
     const getTotalCartAmount = () => {
         let totalAmount = 0;
@@ -42,7 +87,7 @@ const ShopContextProvider = (props) => {    // creates the ShopContextProvider c
             }
         }
         return totalAmount;
-    }
+    };
 
     const getTotalProducts = () => {  // returns the total number of products in the cart
         let totalProducts = 0;
@@ -50,7 +95,7 @@ const ShopContextProvider = (props) => {    // creates the ShopContextProvider c
             totalProducts += cartItems[index];
         }
         return totalProducts;
-    }
+    };
 
     const contextValue = {all_product, cartItems, addToCart, removeFromCart, cancelFromCart, getTotalCartAmount, getTotalProducts};  // allows all children components to access this data without needing to use props
 

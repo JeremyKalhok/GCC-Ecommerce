@@ -8,12 +8,11 @@ const jwt = require("jsonwebtoken"); // import and initialize the jsonwebtoken
 const multer = require("multer"); // ditto multer
 const path = require("path"); // stores backend directory's path for the express app to access
 const cors = require("cors"); // import and initialize the cors package
-const { fstat } = require("fs");
 const dotenv = require("dotenv").config({path : '../.env'}); // access .env file stored in parent directory
 const fs = require("fs"); // used to delete images from upload directory when a product is removed
 
 // Since no path is specified for app.use(), these functions will be executed for every request to the app
-app.use(express.json()); // the response retrieved from express will automatically be passed through json
+app.use(express.json()); // the request retrieved from express will automatically be passed through json
 app.use(cors()); // react app will connect to express app through port 4000
 
 // Database Connection with MongoDB
@@ -228,7 +227,57 @@ app.get('/homeinternals', async (req, res) => {
     homeinternals.push(products[24]);
     console.log("HomeInternals Fetched");
     res.send(homeinternals);
-    
+});
+
+// creating middleware to fetch user given auth-token
+const fetchUser = async (req, res, next) => {
+    const token = req.header('auth-token'); // store auth-token in token variable
+    if (!token){
+        res.status(401).send({errors: "Please authenticate using a valid token"});
+    }
+    else {
+        try {
+            const data = jwt.verify(token, 'secret_ecom'); // authenticate using 'secret-ecom' passcode established above
+            req.user = data.user; // after decoding, set the request's user attribute equal to the decoded user object
+            next(); // execute the next function (addtocart);
+        } catch (error) {
+            res.status(401).send({errors: "Please authenticate using a valid token"});
+        }
+    }
+};
+
+// Creating Endpoint for Adding Products to CartData
+app.post('/addtocart', fetchUser, async (req, res) => {
+    console.log("added", req.body.itemID);    
+    let userData = await Users.findOne({_id: req.user.id}); // find the user in the database with the same _id as the user logged in to the website who sent the request to add an item to cart
+    userData.cartData[req.body.itemID] += 1; // e.g. if trying to add product with id 14, increment the 14th index in the cart
+    await Users.findOneAndUpdate({_id: req.user.id}, {cartData: userData.cartData}); // finds the user with the matching id, and updates its cartData in the database
+    res.send("Item Successfully Added to Cart");
+});
+
+// Creating Endpoint for Removing Products from CartData
+app.post('/removefromcart', fetchUser, async (req, res) => {
+    console.log("removed", req.body.itemID);    
+    let userData = await Users.findOne({_id: req.user.id});
+    userData.cartData[req.body.itemID] -= 1;
+    await Users.findOneAndUpdate({_id: req.user.id}, {cartData: userData.cartData});
+    res.send("Item Successfully Removed from Cart");
+});
+
+// Creating Endpoint for Cancelling Products from CartData
+app.post('/cancelfromcart', fetchUser, async (req, res) => {
+    console.log("cancelled", req.body.itemID);
+    let userData = await Users.findOne({_id: req.user.id});
+    userData.cartData[req.body.itemID] = 0;
+    await Users.findOneAndUpdate({_id: req.user.id}, {cartData: userData.cartData});
+    res.send("Item Successfully Cancelled from Cart");
+});
+
+// Creating Endpoint to get cartData on login
+app.post('/getcart', fetchUser, async (req, res) => { // returns the entire cart
+    console.log("Get Cart");
+    let userData = await Users.findOne({_id: req.user.id});
+    res.json(userData.cartData);
 });
 
 app.listen(port, (error) => { // connect to, and listen for, visitors on port 4000
