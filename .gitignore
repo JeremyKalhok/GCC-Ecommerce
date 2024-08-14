@@ -9,9 +9,6 @@ front-end/.pnp.js
 # testing
 front-end/coverage
 
-# production
-front-end/build
-
 # misc
 .env
 front-end/.DS_Store
