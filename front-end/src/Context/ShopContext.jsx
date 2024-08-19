@@ -24,6 +24,7 @@ const ShopContextProvider = (props) => {    // creates the ShopContextProvider c
             fetch('https://gcc-ecommerce-backend.onrender.com/getcart', {
                 method: 'POST',
                 headers: {
+                    'Access-Control-Allow-Origin': 'https://gcc-ecommerce-backend.onrender.com',
                     Accept: 'application/form-data',
                     'auth-token': `${localStorage.getItem('auth-token')}`,
                     'Content-Type': 'application/json',
@@ -39,6 +40,7 @@ const ShopContextProvider = (props) => {    // creates the ShopContextProvider c
             fetch('https://gcc-ecommerce-backend.onrender.com/addtocart', {
                 method: 'POST',
                 headers: {
+                    'Access-Control-Allow-Origin': 'https://gcc-ecommerce-backend.onrender.com',
                     Accept: 'application/form-data',
                     'auth-token': `${localStorage.getItem('auth-token')}`,
                     'Content-Type': 'application/json',
@@ -54,6 +56,7 @@ const ShopContextProvider = (props) => {    // creates the ShopContextProvider c
             fetch('https://gcc-ecommerce-backend.onrender.com/removefromcart', {
                 method: 'POST',
                 headers: {
+                    'Access-Control-Allow-Origin': 'https://gcc-ecommerce-backend.onrender.com',
                     Accept: 'application/form-data',
                     'auth-token': `${localStorage.getItem('auth-token')}`,
                     'Content-Type': 'application/json',
@@ -69,6 +72,7 @@ const ShopContextProvider = (props) => {    // creates the ShopContextProvider c
             fetch('https://gcc-ecommerce-backend.onrender.com/cancelfromcart', {
                 method: 'POST',
                 headers: {
+                    'Access-Control-Allow-Origin': 'https://gcc-ecommerce-backend.onrender.com',
                     Accept: 'application/form-data',
                     'auth-token': `${localStorage.getItem('auth-token')}`,
                     'Content-Type': 'application/json',

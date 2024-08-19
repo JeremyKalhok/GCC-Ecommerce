@@ -30,6 +30,7 @@ export const LoginSignup = () => {
     await fetch('https://gcc-ecommerce-backend.onrender.com/login', {
       method: 'POST',
       headers: {
+        'Access-Control-Allow-Origin': 'https://gcc-ecommerce-backend.onrender.com',
         Accept: 'application/form-data',
         'Content-Type': 'application/json',
       },
@@ -50,6 +51,7 @@ export const LoginSignup = () => {
     await fetch('https://gcc-ecommerce-backend.onrender.com/signup', {
       method: 'POST',
       headers: {
+        'Access-Control-Allow-Origin': 'https://gcc-ecommerce-backend.onrender.com',
         Accept: 'application/form-data',
         'Content-Type': 'application/json',
       },

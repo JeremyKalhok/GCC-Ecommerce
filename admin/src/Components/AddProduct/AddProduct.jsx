@@ -33,6 +33,7 @@ const AddProduct = () => {
     await fetch('https://gcc-ecommerce-backend.onrender.com/upload', { // mimics the backend call in the index.js file
       method: 'POST',                              // that uploads an image to the backend upload folder 
       headers: {                                   // when given a fieldname ('product') and image file name
+        'Access-Control-Allow-Origin': 'https://gcc-ecommerce-backend.onrender.com',
         Accept: 'application/json',
       },
       body: formData,
@@ -46,6 +47,7 @@ const AddProduct = () => {
       await fetch('https://gcc-ecommerce-backend.onrender.com/addproduct', { // send the new product object to the addproduct endpoint to be added to the MongoDB database
         method: 'POST',
         headers: {
+          'Access-Control-Allow-Origin': 'https://gcc-ecommerce-backend.onrender.com',
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },

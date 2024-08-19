@@ -17,6 +17,7 @@ const ListProduct = () => {
     await fetch('https://gcc-ecommerce-backend.onrender.com/removeproduct', {
       method: 'POST',
       headers: {
+        'Access-Control-Allow-Origin': 'https://gcc-ecommerce-backend.onrender.com',
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
