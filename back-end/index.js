@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken"); // import and initialize the jsonwebtoken
 const multer = require("multer"); // ditto multer
 const path = require("path"); // stores backend directory's path for the express app to access
 const cors = require("cors"); // import and initialize the cors package
-const dotenv = require("dotenv").config({path : '../.env'}); // access .env file stored in parent directory
+require("dotenv").config(); // access .env file stored in parent directory
 const fs = require("fs"); // used to delete images from upload directory when a product is removed
 
 // Since no path is specified for app.use(), these functions will be executed for every request to the app
