@@ -1,4 +1,4 @@
-const port = 4000; // set the localhost port that this app will connect to
+const port = process.env.PORT || 4000; // set the localhost port that this app will connect to
 
 const express = require("express"); // used to import the express.js module
 const app = express(); // create an instance of our app using express.js
