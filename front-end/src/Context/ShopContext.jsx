@@ -17,7 +17,13 @@ const ShopContextProvider = (props) => {    // creates the ShopContextProvider c
     const [cartItems, setCartItems] = useState(getDefaultCart()); // initializes the cartItems state to the empty cart list
 
     useEffect(() => { // instead of using the all_product file, retrieve the products from the database
-        fetch('https://gcc-ecommerce-backend.onrender.com/listproduct').then((response) => response.json()) // and store them in 
+        fetch('https://gcc-ecommerce-backend.onrender.com/listproduct',{
+            method: 'GET',
+            headers: {
+                'Access-Control-Allow-Origin': 'https://gcc-ecommerce-backend.onrender.com',
+                Accept: 'application/json',
+            },
+        }).then((response) => response.json()) // and store them in 
         .then((data) => setAll_Product(data));// the all_product state
 
         if(localStorage.getItem('auth-token')){

@@ -8,7 +8,13 @@ export const HomeInternals = () => {
 
     const [home_internals, setHome_Internals] = useState([]);
     useEffect(() => {
-        fetch('https://gcc-ecommerce-backend.onrender.com/homeinternals').then((response) => response.json())
+        fetch('https://gcc-ecommerce-backend.onrender.com/homeinternals', {
+            method: 'GET',
+            headers: {
+                'Access-Control-Allow-Origin': 'https://gcc-ecommerce-backend.onrender.com',
+                Accept: 'application/json',
+            },
+        }).then((response) => response.json())
         .then((data) => setHome_Internals(data));
     }, []);
 
