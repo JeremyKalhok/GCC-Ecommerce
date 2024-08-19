@@ -6,7 +6,7 @@ const ListProduct = () => {
   const [allproducts, setAllProducts] = useState([]);
 
   const fetchInfo = async () => {
-    await fetch('http://localhost:4000/listproduct').then((res) => res.json()).then((data) => {setAllProducts(data)});
+    await fetch('https://gcc-ecommerce-backend.onrender.com/listproduct').then((res) => res.json()).then((data) => {setAllProducts(data)});
   };
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const ListProduct = () => {
   }, []);
 
   const Remove_Product = async (id, image_url) => { // provide product id and image filename as parameters when calling the function
-    await fetch('http://localhost:4000/removeproduct', {
+    await fetch('https://gcc-ecommerce-backend.onrender.com/removeproduct', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

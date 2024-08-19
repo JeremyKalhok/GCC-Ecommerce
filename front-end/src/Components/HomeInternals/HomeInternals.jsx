@@ -8,7 +8,7 @@ export const HomeInternals = () => {
 
     const [home_internals, setHome_Internals] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:4000/homeinternals').then((response) => response.json())
+        fetch('https://gcc-ecommerce-backend.onrender.com/homeinternals').then((response) => response.json())
         .then((data) => setHome_Internals(data));
     }, []);
 

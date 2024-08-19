@@ -8,7 +8,7 @@ export const HomeShells = () => {
 
   const [home_shells, setHome_Shells] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:4000/homeshells').then((response) => response.json())
+    fetch('https://gcc-ecommerce-backend.onrender.com/homeshells').then((response) => response.json())
     .then((data) => setHome_Shells(data));
   }, []);
 

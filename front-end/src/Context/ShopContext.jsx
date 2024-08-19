@@ -17,11 +17,11 @@ const ShopContextProvider = (props) => {    // creates the ShopContextProvider c
     const [cartItems, setCartItems] = useState(getDefaultCart()); // initializes the cartItems state to the empty cart list
 
     useEffect(() => { // instead of using the all_product file, retrieve the products from the database
-        fetch('http://localhost:4000/listproduct').then((response) => response.json()) // and store them in 
+        fetch('https://gcc-ecommerce-backend.onrender.com/listproduct').then((response) => response.json()) // and store them in 
         .then((data) => setAll_Product(data));// the all_product state
 
         if(localStorage.getItem('auth-token')){
-            fetch('http://localhost:4000/getcart', {
+            fetch('https://gcc-ecommerce-backend.onrender.com/getcart', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/form-data',
@@ -36,7 +36,7 @@ const ShopContextProvider = (props) => {    // creates the ShopContextProvider c
     const addToCart = (itemID) => { // given an itemID (product.id) and the cart list (prev), increment the number in prev using the spread operator
         setCartItems((prev) => ({...prev,[itemID]:prev[itemID]+1}));
         if(localStorage.getItem('auth-token')){ // if a user is logged in
-            fetch('http://localhost:4000/addtocart', {
+            fetch('https://gcc-ecommerce-backend.onrender.com/addtocart', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/form-data',
@@ -51,7 +51,7 @@ const ShopContextProvider = (props) => {    // creates the ShopContextProvider c
     const removeFromCart = (itemID) => { // given an itemID (product.id) and the cart list (prev), decrement the index in prev using the spread operator
         setCartItems((prev) => ({...prev,[itemID]:prev[itemID]-1}));
         if(localStorage.getItem('auth-token')){
-            fetch('http://localhost:4000/removefromcart', {
+            fetch('https://gcc-ecommerce-backend.onrender.com/removefromcart', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/form-data',
@@ -66,7 +66,7 @@ const ShopContextProvider = (props) => {    // creates the ShopContextProvider c
     const cancelFromCart = (itemID) => { // given an itemID (product.id) and the cart list (prev), reset the index in prev to 0 using the spread operator
         setCartItems((prev) => ({...prev,[itemID]:0}));
         if(localStorage.getItem('auth-token')){
-            fetch('http://localhost:4000/cancelfromcart', {
+            fetch('https://gcc-ecommerce-backend.onrender.com/cancelfromcart', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/form-data',

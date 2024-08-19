@@ -10,7 +10,7 @@ export const HomeButtons = () => {
 
   const [home_buttons, setHome_Buttons] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:4000/homebuttons').then((response) => response.json())
+    fetch('https://gcc-ecommerce-backend.onrender.com/homebuttons').then((response) => response.json())
     .then((data) => setHome_Buttons(data));
   }, []);
 
