@@ -27,10 +27,9 @@ export const LoginSignup = () => {
   const login = async () => {
     console.log("Login Function Executed", formData);
     let responseData;
-    await fetch('https://gcc-ecommerce-backend.onrender.com/login', {
+    await fetch(`${process.env.REACT_APP_SERVER_URL}/login`, {
       method: 'POST',
       headers: {
-        'Access-Control-Allow-Origin': 'https://gcc-ecommerce-backend.onrender.com',
         Accept: 'application/form-data',
         'Content-Type': 'application/json',
       },
@@ -38,7 +37,7 @@ export const LoginSignup = () => {
     }).then((response) => response.json()).then((data) => responseData = data);
     if (responseData.success){
       localStorage.setItem('auth-token', responseData.token);
-      window.location.replace("/GCC-Ecommerce");
+      window.location.replace("/");
     }
     else{
       alert(responseData.errors);
@@ -48,10 +47,9 @@ export const LoginSignup = () => {
   const signup = async () => {
     console.log("Signup Function Executed", formData);
     let responseData;
-    await fetch('https://gcc-ecommerce-backend.onrender.com/signup', {
+    await fetch(`${process.env.REACT_APP_SERVER_URL}/signup`, {
       method: 'POST',
       headers: {
-        'Access-Control-Allow-Origin': 'https://gcc-ecommerce-backend.onrender.com',
         Accept: 'application/form-data',
         'Content-Type': 'application/json',
       },
@@ -59,7 +57,7 @@ export const LoginSignup = () => {
     }).then((response) => response.json()).then((data) => responseData = data);
     if (responseData.success){ // if signup is successful, (success is true), store the jwt auth token
       localStorage.setItem('auth-token', responseData.token); // and send the user to the homepage
-      window.location.replace("/GCC-Ecommerce");
+      window.location.replace("/");
     }
     else{
       alert(responseData.errors);

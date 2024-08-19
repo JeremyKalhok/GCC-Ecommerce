@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './HomeButtons.css'
 import { Item } from '../Item/Item'
-import home_buttons from '../Assets/home_buttons'
-import home_buttons2 from '../Assets/home_buttons2'
 import arrow_icon from '../Assets/arrow.png'
 import { Link } from 'react-router-dom'
 
@@ -10,13 +8,7 @@ export const HomeButtons = () => {
 
   const [home_buttons, setHome_Buttons] = useState([]);
   useEffect(() => {
-    fetch('https://gcc-ecommerce-backend.onrender.com/homebuttons', {
-      method: 'GET',
-      headers: {
-        'Access-Control-Allow-Origin': 'https://gcc-ecommerce-backend.onrender.com',
-        Accept: 'application/json',
-      },
-    }).then((response) => response.json())
+    fetch(`${process.env.REACT_APP_SERVER_URL}/homebuttons`).then((response) => response.json())
     .then((data) => setHome_Buttons(data));
   }, []);
 

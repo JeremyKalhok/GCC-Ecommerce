@@ -31,7 +31,7 @@ export const Navbar = () => {
         </ul>   {/* the Link tag sets the path depending on which page you click, for the App.js Router component to decide which page to render */}
         <div className="nav-login-cart">    {/* container for login button and cart */}
             {localStorage.getItem('auth-token') // if an auth-token is in the brower's local storage, replace the Log In button with a Log Out button that removes the auth-token from local
-            ?<button onClick={() => {localStorage.removeItem('auth-token'); window.location.replace('/GCC-Ecommerce')}}>Log Out</button> // storage and returns the user to the homepage
+            ?<button onClick={() => {localStorage.removeItem('auth-token'); window.location.replace('/')}}>Log Out</button> // storage and returns the user to the homepage
             :<Link to='/login'><button>Login</button></Link>}
             <Link to='/cart'><img src={cart_icon} alt="" /></Link>
             <div className="nav-cart-count">{getTotalProducts()}</div>     {/* circle counter for cart items */}
