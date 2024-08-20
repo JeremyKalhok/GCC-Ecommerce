@@ -41,7 +41,7 @@ app.use('/images', express.static('upload/images')); // when the /images endpoin
 app.post("/upload", upload.single('product'), (req,res) => { // parameter of upload.single (i.e. 'product') will provide the fieldname on line 26
     res.json({ // if an image is successfully requested, respond with setting success to 1 and the image url
         success: 1, // every time the post request is run, the multer.diskStorage function above will run 
-        image_url: `http://localhost:${port}/images/${req.file.filename}`
+        image_url: `https://gcc-ecommerce-backend.onrender.com/images/${req.file.filename}`
     });
 });
 
