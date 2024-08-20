@@ -19,6 +19,16 @@ export const ProductDisplay = (props) => {
         window.scroll(0, 0);
     }, []);
 
+    const checkIfAdd = () => {
+        if (localStorage.getItem('auth-token')){
+            addToCart(product.id); 
+            alert(`"${product.name}" has been added to cart!`);
+        }
+        else{
+            alert("You must be logged in to add items to the cart");
+        }
+    }
+
   return (
     <div className="product-display">
         <div className="arrow left"> {/* will allow you to view the product to the left within the given range */}
@@ -45,7 +55,7 @@ export const ProductDisplay = (props) => {
                     {product.description}
                 </div>
                 <div className="add-to-cart-btn">
-                    <button onClick={() => {addToCart(product.id); alert(`"${product.name}" has been added to cart!`)}}>ADD TO CART</button>
+                    <button onClick={() => {checkIfAdd()}}>ADD TO CART</button>
                 </div>
             </div>
         </div>
