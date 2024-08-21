@@ -7,11 +7,11 @@ To demo the hosted website, visit [GCC 4 U](https://gcc-ecommerce.onrender.com)
 > User information is NOT ENCRYTPED in the database. If you want to Sign Up to test the cart, use a dummy password.
 
 ## Languages and Frameworks
-# Front End
+### Front End
 - React
 - CSS
 
-# Back End
+### Back End
 - Express.js
 - Multer
 - JWT
